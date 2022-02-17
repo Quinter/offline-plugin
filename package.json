@@ -9,6 +9,7 @@
     "runtime.js",
     "runtime.d.ts"
   ],
+  "type": "commonjs",
   "scripts": {
     "test": "npm run test:fixtures",
     "test:browser": "node tests/run-browser-tests.js",
