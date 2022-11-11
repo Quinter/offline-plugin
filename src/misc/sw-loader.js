@@ -9,10 +9,11 @@ const modules = [
 module.exports = function() {};
 module.exports.pitch = function pitch(remainingRequest, precedingRequest, data) {
   this.cacheable && this.cacheable();
+  var loaderContext = this;
 
   const callback = this.async();
   const templatePath = path.join(__dirname, 'sw-template.js');
-  var query = loaderUtils.getOptions(this) || {};
+  var query = new URLSearchParams(loaderContext.resourceQuery.slice(1))
   const params = JSON.parse(query.json);
 
   const request = loaderUtils.stringifyRequest(this, remainingRequest);
